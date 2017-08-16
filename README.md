@@ -10,7 +10,7 @@
 ## 特性
 
 -   基于[react](https://github.com/facebook/react)，[ant-mobile](https://mobile.ant.design/index-cn)，[Next.js](https://github.com/zeit/next.js)，[Redux](https://github.com/reactjs/redux) web-mobile服务端渲染最佳实践。
--   基于Antd Mobile UI ，手机webapp服务端渲染的最佳实践脚手架。
+-   基于Ant Mobile UI ，手机webapp服务端渲染的最佳实践脚手架。
 -   通过NodeJs反向代理解决了跨域问题。
 
 ## 如何运行
