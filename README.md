@@ -59,7 +59,10 @@
 ├── .babelrc		# babelrc配置
 └── .gitignore		# gitignore配置
 ```
-
+## 错误
+如果在 npm install 时候报错很有可能是安装node-sass报错。
+执行下面的命令即可
+npm install node-sass --registry=https://registry.npm.taobao.org
 
 ## 截屏
 
@@ -68,3 +71,4 @@
 ![](screenshots/http.png)
 
 ![](screenshots/scss.png)
+
