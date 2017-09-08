@@ -5,6 +5,7 @@
 [![Next.js](https://img.shields.io/badge/next-latest-orange.svg?style=flat-square)](https://github.com/zeit/next.js)
 
 本人新手第一次搭脚手架还需大神多多指点
+亲测已用到生产项目上
 
 
 ## 特性
