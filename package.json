@@ -10,6 +10,7 @@
     "es6-promise": "^4.1.1",
     "express": "^4.15.4",
     "glob": "7.1.1",
+    "compression": "^1.7.1",
     "http-proxy": "^1.16.2",
     "isomorphic-fetch": "^2.2.1",
     "loader-utils": "^1.1.0",
