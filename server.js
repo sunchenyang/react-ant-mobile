@@ -2,6 +2,7 @@ const express = require('express')
 const next = require('next')
 const httpProxy = require('http-proxy');  
 const dev = process.env.NODE_ENV.indexOf('development')==-1?true:false;
+const compression = require('compression')
 const app = next({ dev })
 const handle = app.getRequestHandler()
 // 新建一个代理 Proxy Server 对象  
@@ -9,7 +10,7 @@ var proxy = httpProxy.createProxyServer({});
 app.prepare()
 .then(() => {
   const server = express()
-
+  server.use(compression())
   //node服务 反向代理解决跨域问题
   server.get('/ant/ant/ant-cgi/*', (req, res) => {
 	  console.log("client ip GET:" + req.url);  
