@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {
-  Card,Button,Flex,InputItem
+  Card, Button, Flex, InputItem
 } from 'antd-mobile'
 import Router from 'next/router'
 import { connect } from 'react-redux'
@@ -9,8 +9,8 @@ import withRedux from 'next-redux-wrapper'
 import { initStore } from '../store'
 import * as homeAction from '../actions/home'
 class Counter extends Component {
-  static getInitialProps ({ req,isServer}) {
-     
+  static getInitialProps({ req, isServer}) {
+
     return {
       isServer
     }
@@ -19,52 +19,52 @@ class Counter extends Component {
     super(props)
     this.state = {
       number: 6,
-      loading:false,
+      loading: false,
     }
   }
   componentWillReceiveProps(nextProps) {
-    if(nextProps.number){
-     this.setState({number:nextProps.number});
+    if (nextProps.number) {
+      this.setState({ number: nextProps.number });
     }
   }
 
-  setNumbser(e){
-    this.setState({number:e});
+  setNumbser(e) {
+    this.setState({ number: e });
   }
   //加
-  addNumber=()=>{
+  addNumber = () => {
     this.props.add(this.state.number);
   }
   //减
-  subNumber=()=>{
+  subNumber = () => {
     this.props.sub(this.state.number);
   }
-  http=()=>{
+  http = () => {
     Router.push('/http');
   }
-  render () {
-    const {language,url: { pathname }} = this.props
+  render() {
+    const {language, url: { pathname }} = this.props
     const {number} = this.state;
     return (
       <div>
-         <Card>
+        <Card>
           <Card.Header title="redux" ></Card.Header>
           <Card.Body>
-              <div><InputItem type="number" value={number} onChange={(e)=>this.setNumbser(e)} /></div>
-              <Flex>
-              <Flex.Item><Button  type="primary" size="small" onClick={this.addNumber} >+</Button></Flex.Item>
-              <Flex.Item><Button  size="small" onClick={this.subNumber} >-</Button></Flex.Item>
+            <div><InputItem type="number" value={number} onChange={(e) => this.setNumbser(e)} /></div>
+            <Flex>
+              <Flex.Item><Button type="primary" size="small" onClick={this.addNumber} >+</Button></Flex.Item>
+              <Flex.Item><Button size="small" onClick={this.subNumber} >-</Button></Flex.Item>
             </Flex>
           </Card.Body>
-         </Card>
-         <Button  type="primary" size="small" onClick={this.http} >httpPage</Button>
+        </Card>
+        <Button type="primary" size="small" onClick={this.http} >httpPage</Button>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-	return { 
+  return {
     number: state.home.number
   };
 }

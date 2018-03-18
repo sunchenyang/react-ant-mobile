@@ -3,7 +3,7 @@ import Router from 'next/router'
 import { TabBar, Icon } from 'antd-mobile'
 
 export default class MenuBar extends Component {
-  render () {
+  render() {
     const {
       pathname,
       children
@@ -19,7 +19,7 @@ export default class MenuBar extends Component {
             selectedIcon={<Icon type={selectedIcon} />}
             selected={pathname === link}
             onPress={() => Router.push(link)}
-          >
+            >
             {children}
           </TabBar.Item>
         ))}
@@ -31,8 +31,8 @@ export default class MenuBar extends Component {
 const tabBarData = [
   {
     title: 'home',
-    icon: 'koubei-o',
-    selectedIcon: 'koubei',
+    icon: 'check-circle-o',
+    selectedIcon: 'check-circle',
     link: '/home'
   },
   {
@@ -43,8 +43,8 @@ const tabBarData = [
   },
   {
     title: 'scss',
-    icon: 'cross-circle-o',
-    selectedIcon: 'cross-circle',
+    icon: 'check-circle-o',
+    selectedIcon: 'check-circle',
     link: '/scss'
   }
 ]

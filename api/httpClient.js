@@ -4,15 +4,15 @@ import FetchFn from './fetchFn';
 const baseURI = 'http://127.0.0.1:8080/ant/ant/ant-cgi';
 
 export default class HttpClient extends React.Component {
-	
-	
+
+
 	static AjaxGet(url, cb) {
 		let opt = {
 			type: 'get',
 			url: baseURI + url
 		};
-		FetchFn.fetchFn(opt, cb,(err)=>{
-				cb();
+		FetchFn.fetchFn(opt, cb, (err) => {
+			cb();
 		});
 	}
 	static AjaxPost(url, data, cb) {
@@ -21,7 +21,7 @@ export default class HttpClient extends React.Component {
 			url: baseURI + url,
 			data: data
 		};
-			FetchFn.fetchFn(opt, cb,(err)=>{
-			});
+		FetchFn.fetchFn(opt, cb, (err) => {
+		});
 	}
 }

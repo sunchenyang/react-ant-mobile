@@ -2,6 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const requireHacker = require('require-hacker')
 const glob = require('glob')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 function setupRequireHacker () {
   const webjs = '.web.js'
   const webModules = ['antd-mobile', 'rmc-picker'].map(m => path.join('node_modules', m))
@@ -27,21 +28,25 @@ function moduleDir (m) {
 }
 
 module.exports = {
+  webpack: (config) => {
+    config.output.publicPath = `/prefix${config.output.publicPath}`;
+    return config;
+  },
   webpack: (config, { dev }) => {
     config.resolve.extensions = ['.web.js', '.js', '.json']
-
-    config.module.rules.push(
-      {
-        test: /\.(svg)$/i,
-        loader: 'emit-file-loader',
-        options: {
-          name: 'dist/[path][name].[ext]'
-        },
-        include: [
-          moduleDir('antd-mobile'),
-          __dirname
+	config.plugins.push(
+      new SWPrecacheWebpackPlugin({
+        verbose: true,
+        staticFileGlobsIgnorePatterns: [/\.next\//],
+        runtimeCaching: [
+          {
+            handler: 'networkFirst',
+            urlPattern: /^https?.*/
+          }
         ]
-      },
+      })
+    )
+    config.module.rules.push(
       {
         test: /\.(svg)$/i,
         loader: 'svg-sprite-loader',
