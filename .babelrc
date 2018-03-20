@@ -8,20 +8,29 @@
             {
                 "libraryName": "antd-mobile"
             }
-        ],[
-      "module-resolver", {
-        "root": ["."],
-        "alias": {
-          "styles": "./styles"
-        },
-        "cwd": "babelrc"
-    }],
-    [
-      "wrap-in-js",
-      {
-        "extensions": ["css$", "scss$"]
-      }
-    ]
+        ],
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "."
+                ],
+                "alias": {
+                    "styles": "./styles"
+                },
+                "cwd": "babelrc"
+            }
+        ],
+        [
+            "wrap-in-js",
+            {
+                "extensions": [
+                    "css$",
+                    "scss$"
+                ]
+            }
+        ],
+        "transform-decorators-legacy"
     ],
-     "ignore": []
+    "ignore": []
 }

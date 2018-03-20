@@ -9,7 +9,7 @@ import withRedux from 'next-redux-wrapper'
 import { initStore } from '../store'
 import * as homeAction from '../actions/home'
 class Counter extends Component {
-  static getInitialProps({ req, isServer}) {
+  static getInitialProps({ req, isServer }) {
 
     return {
       isServer
@@ -43,8 +43,8 @@ class Counter extends Component {
     Router.push('/http');
   }
   render() {
-    const {language, url: { pathname }} = this.props
-    const {number} = this.state;
+    const { language, url: { pathname } } = this.props
+    const { number } = this.state;
     return (
       <div>
         <Card>
@@ -57,7 +57,7 @@ class Counter extends Component {
             </Flex>
           </Card.Body>
         </Card>
-        <Button type="primary" size="small" onClick={this.http} >httpPage</Button>
+        <Button type="primary" size="small" style={{ margin: '10px' }} onClick={this.http} >httpPage</Button>
       </div>
     )
   }

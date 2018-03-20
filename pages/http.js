@@ -7,9 +7,22 @@ import { initStore } from '../store'
 import * as httpAction from '../actions/http'
 import Layout from '../components/Layout'
 import MenuBar from '../components/MenuBar'
+import { ReduxIni } from '../decorators'
 
-class Http extends Component {
-  static getInitialProps({ req, isServer}) {
+function mapStateToProps(state) {
+  return {
+    user: state.http.user,
+  };
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: bindActionCreators(httpAction.login, dispatch),
+  }
+}
+
+@ReduxIni(mapStateToProps, mapDispatchToProps)
+export default class Http extends Component {
+  static getInitialProps({ req, isServer }) {
     const language = req ? req.headers['accept-language'] : navigator.language
     return { language, isServer }
   }
@@ -33,7 +46,7 @@ class Http extends Component {
     }
   }
   login = () => {
-    const {name, password} = this.state;
+    const { name, password } = this.state;
     if (name && password) {
       this.setState({ loading: true });
       this.props.login(name, password);
@@ -48,15 +61,15 @@ class Http extends Component {
     }
   }
   render() {
-    const { language, url: { pathname }} = this.props
-    const {name, password, loading} = this.state;
+    const { language, url: { pathname } } = this.props
+    const { name, password, loading } = this.state;
     return (
       <Layout language={language}>
         <MenuBar
           pathname={pathname}
-          >
+        >
           <div >
-            <WingBlank>
+            <WingBlank style={{ margin: '15px' }}>
               <div style={{ display: 'inline-block', width: '30%' }}>userName:</div>
               <div style={{ display: 'inline-block', width: '70%' }} ><InputItem type="text" value={name} onChange={(e) => this.upDate(e, 'name')} /></div>
             </WingBlank>
@@ -65,21 +78,9 @@ class Http extends Component {
               <div style={{ display: 'inline-block', width: '30%' }}>passWord:</div>
               <div style={{ display: 'inline-block', width: '70%' }} ><InputItem type="password" value={password} onChange={(e) => this.upDate(e, 'password')} /></div>
             </WingBlank>
-            <Button type="primary" loading={loading} onClick={this.login}>login</Button></div>
+            <Button style={{ margin: '20px' }} type="primary" size="small" loading={loading} onClick={this.login}>login</Button></div>
         </MenuBar>
       </Layout>
     )
   }
 }
-function mapStateToProps(state) {
-  return {
-    user: state.http.user,
-  };
-}
-const mapDispatchToProps = (dispatch) => {
-  return {
-    login: bindActionCreators(httpAction.login, dispatch),
-  }
-}
-
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(Http)

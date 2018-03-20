@@ -41,15 +41,15 @@
 ├── /components/	# 组件
 │ │ ├── Layout.js	# 国际化
 │ │ ├── MenuBar.js	# 底部导航
-├── /decorators/	# 装饰器
-│ │ ├── index.js        # 装饰器入口
-│ │ ├── ReduxIni.js     # redux 装饰器
-├── /pages/		# 组件
+├── /components/	# 组件
 │ │ ├── _document.js    # http模板
 │ │ ├── home.js		# home.js
 │ │ ├── http.js		# http.js
 │ │ ├── index.js	# 入口文件
 │ │ ├── scss.js		# scss.js
+├── /decorators/	# 装饰器
+│ │ ├── index.js        # 装饰器入口
+│ │ ├── ReduxIni.js     # redux 装饰器
 ├── /reducers/		# redux reducers
 │ │ ├── index.js	# reducers 入口文件
 │ │ ├── home.js		# home.js

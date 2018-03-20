@@ -11,7 +11,7 @@ import withRedux from 'next-redux-wrapper'
 import { initStore } from '../store'
 import * as homeAction from '../actions/home'
 export default class Home extends Component {
-  static getInitialProps({ req, isServer}) {
+  static getInitialProps({ req, isServer }) {
     const language = req ? req.headers['accept-language'] : navigator.language
     return {
       language, isServer
@@ -48,20 +48,20 @@ export default class Home extends Component {
     Router.push('/counter');
   }
   render() {
-    const {language, url: { pathname }} = this.props
-    const {number} = this.state;
+    const { language, url: { pathname } } = this.props
+    const { number } = this.state;
     return (
       <Layout language={language}>
         <MenuBar
           pathname={pathname}
-          >
-          <Card>
+        >
+          <Card style={{ height: '50%' }}>
             <Card.Body>
-              <div style={{ textAlign: 'center' }}>hello react-ant-mobile</div>
+              <div style={{ textAlign: 'center', width: '100%', position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }}>hello react-ant-mobile</div>
             </Card.Body>
           </Card>
-          <Button type="primary" size="small" onClick={this.http} >httpPage</Button>
-          <Button type="primary" size="small" onClick={this.counter} >counter</Button>
+          <Button style={{ margin: '20px' }} type="primary" size="small" onClick={this.http} >httpPage</Button>
+          <Button style={{ margin: '20px' }} type="primary" size="small" onClick={this.counter} >counter</Button>
         </MenuBar>
       </Layout>
     )
