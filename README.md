@@ -4,8 +4,7 @@
 [![Ant Mobile](https://img.shields.io/badge/ant--mobile-^1.4.0-yellowgreen.svg?style=flat-square)](https://mobile.ant.design/index-cn)
 [![Next.js](https://img.shields.io/badge/next-latest-orange.svg?style=flat-square)](https://github.com/zeit/next.js)
 
-本人新手第一次搭脚手架还需大神多多指点
-<br />
+
 亲测已用到生产项目上
 
 
