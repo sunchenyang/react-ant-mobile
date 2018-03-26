@@ -10,6 +10,7 @@ import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import { initStore } from '../store'
 import * as homeAction from '../actions/home'
+import stylesheet from '../styles/home.css'
 export default class Home extends Component {
   static getInitialProps({ req, isServer }) {
     const language = req ? req.headers['accept-language'] : navigator.language
@@ -29,7 +30,6 @@ export default class Home extends Component {
       this.setState({ number: nextProps.number });
     }
   }
-
   setNumbser(e) {
     this.setState({ number: e });
   }
@@ -55,9 +55,10 @@ export default class Home extends Component {
         <MenuBar
           pathname={pathname}
         >
-          <Card style={{ height: '50%' }}>
+          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+          <Card className="home-card" >
             <Card.Body>
-              <div style={{ textAlign: 'center', width: '100%', position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }}>hello react-ant-mobile</div>
+              <div className="card">hello react-ant-mobile</div>
             </Card.Body>
           </Card>
           <Button style={{ margin: '20px' }} type="primary" size="small" onClick={this.http} >httpPage</Button>
